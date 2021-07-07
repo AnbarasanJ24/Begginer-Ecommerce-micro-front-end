@@ -7,8 +7,6 @@ for (let index = 0; index < 3; index++) {
     products += `<h1>${name}</h1>`
 
 }
-const productsContainer = document.getElementById('products');
-productsContainer.innerHTML = products
-console.log("products", products)
+document.querySelector('#products').innerHTML = products
 
 
