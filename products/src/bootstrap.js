@@ -1,12 +1,24 @@
 import faker from 'faker';
 
-let products = '';
 
-for (let i = 0; i < 5; i++) {
-    const name = faker.commerce.productName();
-    products += `<div>${name}</div>`;
+
+const mount = (el) => {
+    let products = '';
+
+    for (let i = 0; i < 5; i++) {
+        const name = faker.commerce.productName();
+        products += `<div>${name}</div>`;
+    }
+
+    el.innerHTML = products;
 }
 
+if (process.env.NODE_ENV === 'development') {
 
-document.querySelector('#dev-products').innerHTML = products;
+    const el = document.getElementById('dev-products'); //Should be Unique ID
+    if (el) {
+        mount(el);
+    }
+}
 
+export { mount };

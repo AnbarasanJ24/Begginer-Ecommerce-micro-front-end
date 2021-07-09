@@ -1,7 +1,19 @@
 import faker from 'faker';
 
 
-console.log("Cart Loaded")
+const mount = (el) => {
 
-const title = document.getElementById('cartTitle')
-title.innerText = `You have ${Math.floor(faker.commerce.price())} item in cart`
+    console.log("Cart Loaded")
+    el.innerText = `You have ${Math.floor(faker.commerce.price())} item in cart`
+
+}
+
+if (process.env.NODE_ENV === 'development') {
+
+    const el = document.getElementById('dev-cartTitle')
+    if (el) {
+        mount(el);
+    }
+}
+
+export { mount };
